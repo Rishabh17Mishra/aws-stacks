@@ -32,6 +32,8 @@ module "rds_mssql" {
   allocated_storage    = var.allocated_storage
   max_allocated_storage = var.max_allocated_storage
   db_name              = var.db_name
+  major_engine_version = var.major_engine_version
+  family = var.family
 
   username = jsondecode(data.aws_secretsmanager_secret_version.rds_secret_version.secret_string)["username"]
   password = jsondecode(data.aws_secretsmanager_secret_version.rds_secret_version.secret_string)["password"]
